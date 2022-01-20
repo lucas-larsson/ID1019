@@ -1,3 +1,6 @@
+# Mac directory file 
+.DS_Store
+
 .eunit
 *.o
 *.beam
