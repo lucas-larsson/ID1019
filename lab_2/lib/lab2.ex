@@ -16,6 +16,12 @@ defmodule Lab2 do
     :world
   end
 
+  def test() do
+    e = {:add,
+         {:mul, {:num, 2}, {:var, :x}},
+          {:num, 4}}
+      deriv(e, :x)
+  end
 
 def pprint({:num, n}) do "#{n}" end
 
@@ -23,6 +29,10 @@ def pprint({:var, v}) do "#{v}" end
 
 def pprint({:add, e1, e2}) do
    "#{pprint(e1)} +  #{pprint(e2)}"
+  end
+
+def pprint(:mul, e1, e2)  do
+  "#{pprint(e1)} + #{pprint(e2)}"
   end
 
 @type literal() :: {:num, number()} | {:var, atom()}
@@ -49,9 +59,6 @@ def pprint({:add, e1, e2}) do
      {:mul, deriv(e1, v), e2 },
      {:mul, e1, deriv(e2, v)}
     }
-
   end
-
-
 
 end
