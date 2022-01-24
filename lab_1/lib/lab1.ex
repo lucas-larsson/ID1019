@@ -26,7 +26,8 @@ defmodule Lab1 do
  # Compute the product of x and y using recursion
  @spec prod(number, any) :: any
  def prod(0, _ ) do 0 end
- def prod(1 , x ) do x end
+ # this case is not needed
+ # def prod(1 , x ) do x end
  def prod( x , y ) do
     # print tp CLI for debugging
       IO.puts(x)
