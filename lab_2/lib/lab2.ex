@@ -15,6 +15,16 @@ defmodule Lab2 do
   def hello do
     :world
   end
+
+
+def pprint({:num, n}) do "#{n}" end
+
+def pprint({:var, v}) do "#{v}" end
+
+def pprint({:add, e1, e2}) do
+   "#{pprint(e1)} +  #{pprint(e2)}"
+  end
+
 @type literal() :: {:num, number()} | {:var, atom()}
 
 @type expr() :: literal()
