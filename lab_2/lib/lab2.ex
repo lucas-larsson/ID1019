@@ -28,9 +28,11 @@ defmodule Lab2 do
          {:mul, {:num, 2}, {:var, :x}},
           {:num, 4}}
        d = deriv(e, :x)
+       c = calc(d, :x, 5)
        IO.write("Expression: #{pprint(e)}\n")
        IO.write("Derivative: #{pprint(d)}\n")
        IO.write("Simplified: #{pprint(simplify(d))}\n")
+       IO.write("Calculated: #{pprint(simplify(c))}\n")
        :ok
   end
   def test2() do
@@ -38,10 +40,11 @@ defmodule Lab2 do
       {:exp, {:var, :x}, {:num, 3}},
       {:num, 4}}
       d = deriv(e, :x)
-
+      c = calc(d, :x, 5)
       IO.write("Expression: #{pprint(e)}\n")
       IO.write("Derivative: #{pprint(d)}\n")
       IO.write("Simplified: #{pprint(simplify(d))}\n")
+      IO.write("Calculated: #{pprint(simplify(c))}\n")
       :ok
 
   end
@@ -68,22 +71,21 @@ defmodule Lab2 do
     {:mul,{:num, n}, {:exp, e, {:num, n - 1}}},
     deriv(e, v)
     }
-
   end
 
-def pprint({:num, n}) do "#{n}" end
-
-def pprint({:var, v}) do "#{v}" end
-
-def pprint({:add, e1, e2}) do
-   "(#{pprint(e1)} +  #{pprint(e2)})"
+  def calc({:num, n}, _, _) do {:num, n}  end
+  def calc({:var, v}, v, n) do {:num, n}  end
+  def calc({:var, v}, _, _) do {:var, v}  end
+  def calc({:add, e1, e2}, v, n) do
+    {:add, calc(e1, v, n), calc(e2, v, n)}
   end
 
-def pprint({:mul, e1, e2}) do
-  "#{pprint(e1)} * #{pprint(e2)}"
+  def calc({:mul, e1, e2}, v, n) do
+    {:mul, calc(e1, v, n), calc(e2, v, n)}
   end
-def pprint({:exp, e1, e2})  do
-  "(#{pprint(e1)})ˆ(#{pprint(e2)})"
+
+  def calc({:exp, e1, e2}, v, n) do
+    {:exp, calc(e1, v, n), calc(e2, v, n)}
   end
 
 
@@ -125,6 +127,21 @@ def simplify_mull(e1, e2) do {:mul, e1, e2} end
 
 def simplify_exp( _ , {:num, 0}) do {:num, 1} end
 def simplify_exp( e1, {:num, 1}) do e1 end
+def simplify_exp({:num, n1}, {:num, n2}) do {:num, :math.pow(n1,n2)} end
 def simplify_exp( e1, e2 ) do {:exp, e1, e2} end
+
+def pprint({:num, n}) do "#{n}" end
+def pprint({:var, v}) do "#{v}" end
+def pprint({:add, e1, e2}) do
+   "(#{pprint(e1)} +  #{pprint(e2)})"
+  end
+
+def pprint({:mul, e1, e2}) do
+  "#{pprint(e1)} * #{pprint(e2)}"
+  end
+
+def pprint({:exp, e1, e2})  do
+  "(#{pprint(e1)})ˆ(#{pprint(e2)})"
+  end
 
 end
