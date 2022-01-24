@@ -20,7 +20,7 @@ defmodule Lab1 do
  # Compute m to the power of n
  @spec exp(any, non_neg_integer) :: any
  def exp(_ , 0) do 1 end
- def exp(m , 1) do m end
+ # def exp(m , 1) do m end
  def exp(m , n) do prod( m ,exp(m, n - 1))end
 
  # Compute the product of x and y using recursion
@@ -30,8 +30,8 @@ defmodule Lab1 do
  # def prod(1 , x ) do x end
  def prod( x , y ) do
     # print tp CLI for debugging
-      IO.puts(x)
-      IO.puts(y)
+     # IO.puts(x)
+     # IO.puts(y)
    x + prod( y - 1 , x)
 end
 
