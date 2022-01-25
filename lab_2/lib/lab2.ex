@@ -56,15 +56,13 @@ defmodule Lab2 do
   def testLn() do
     e = {:ln, {:var, :x}}
     d = deriv(e, :x)
-    #c = calc(d, :x, 4)
-
-    # IO.inspect(c)
-
+    c = calc(d, :x, 4)
+     # IO.inspect(c)
+     # calc() doesnt work with 1 for some reason??
     IO.write("Expression: #{pprint(e)}\n")
     IO.write("Derivative: #{pprint(d)}\n")
     IO.write("Simplified: #{pprint(simplify(d))}\n")
-      # getting error for some reason
-    #IO.write("Calculated: #{pprint(simplify(c))}\n")
+    IO.write("Calculated: #{pprint(simplify(c))}\n")
     :ok
   end
 
@@ -265,6 +263,7 @@ defmodule Lab2 do
   def simplify_div({:num, n1},{:num, n2}) do {:num, n1/n2} end
   def simplify_div(e1, e2) do {:div, e1, e2} end
 
+
   def simplify_sqrt({:num, 0}) do {:num, 0} end
   def simplify_sqrt({:num, 1}) do {:num, 1} end
   def simplify_sqrt({:num, n}) do {:num, :math.sqrt(n)} end
@@ -305,12 +304,11 @@ defmodule Lab2 do
   end
 
   def pprint({:sin, e}) do
-    "√Sin#{pprint(e)}"
+    "Sin#{pprint(e)}"
   end
 
   def pprint({:cos, e}) do
     "Cos#{pprint(e)}"
   end
-
 
 end
