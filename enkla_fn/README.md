@@ -1,21 +1,21 @@
-# Lab1
+# EnklaFn
 
 **TODO: Add description**
 
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `lab_1` to your list of dependencies in `mix.exs`:
+by adding `enkla_fn` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:lab_1, "~> 0.1.0"}
+    {:enkla_fn, "~> 0.1.0"}
   ]
 end
 ```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/lab_1](https://hexdocs.pm/lab_1).
+be found at [https://hexdocs.pm/enkla_fn](https://hexdocs.pm/enkla_fn).
 

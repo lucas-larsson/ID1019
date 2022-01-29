@@ -1,9 +1,9 @@
-defmodule Lab2.MixProject do
+defmodule EnklaFn.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :lab_2,
+      app: :enkla_fn,
       version: "0.1.0",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,

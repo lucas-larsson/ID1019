@@ -1,4 +1,4 @@
-defmodule Lab1 do
+defmodule Enkla_fn do
   @moduledoc """
   Documentation for `Lab1`.
   """
