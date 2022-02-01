@@ -8,7 +8,11 @@ defmodule Test do
   end
 
   def demo() do
-    IO.write('Registers 0 - 6 values are printed in the folwing order:
+    IO.write('
+    Registers 0 - 6 values are printed in the follwing order:
+
+    [$0, $1, $2, $3, $4, $4, $5, $6, $12, $18, $18, $18, $18]
+    [0, 1, 2, 3, 0, 2, 5, 3, 18, 20, 18, 16, 16, 14]
 
     ')
 
@@ -28,7 +32,16 @@ defmodule Test do
      {:out, 5},             # out $5
      {:sub, 6, 5, 4},       # $6 <- $5 - $4
      {:out, 6},             # out $6
-     {:bne, 4, 0, -3},      # branch if not equal
+     {:addi, 12, 2, 16},    # $12 <- $2 + 16
+     {:out, 12},            # out $12
+     {:addi, 18, 2, 18},    # $18 <- $2 + 18
+     {:out, 18},            # out $18
+     {:sub, 18, 18, 2},     # $18 <- $18 - 2
+     {:out, 18},            # out $18
+     {:beq, 18, 12, -2},    # branch if equal
+     {:out, 18},            # out $18
+     {:sub, 18, 18, 2},
+     {:out, 18},
      {:halt}]
   end
 
