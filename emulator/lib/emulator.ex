@@ -51,15 +51,30 @@ defmodule Emulator do
 
       {:beq, rs, rt, imm} ->
         a = Register.read(reg, rs)
+        # IO.write(a)
         b = Register.read(reg, rt)
-        pc = if a == b do pc + imm else pc end
-        run(pc + 1, code, mem, reg, out)
+        # IO.write(b)
+        cond do
+          a == b ->
+            pc = pc + imm
+            run(pc, code, mem, reg, out)
+          a != b -> pc = pc
+          run(pc + 1, code, mem, reg, out)
+
+        end
 
       {:bne, rs, rt, imm} ->
         a = Register.read(reg, rs)
         b = Register.read(reg, rt)
-        pc = if a == b  do pc + imm else pc end
-        run(pc + 1, code, mem, reg, out)
+        cond do
+          a != b ->
+            pc = pc + imm
+            run(pc , code, mem, reg, out)
+          a == b ->
+            pc = pc
+            run(pc + 1, code, mem, reg, out)
+
+          end
 
       {:lw, rd, rs, imm} ->
         a = Register.read(reg, rs)
