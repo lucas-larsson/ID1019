@@ -5,8 +5,7 @@ defmodule Register do
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
   end
 
-  
-  def read( _, 0) do 0 end
+
   def read(reg, i) do elem(reg, i) end
 
   def write(reg, 0, _) do reg end
