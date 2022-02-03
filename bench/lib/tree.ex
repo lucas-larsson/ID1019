@@ -1,7 +1,7 @@
 defmodule Tree do
 
   def new_tree() do [] end
-
+  # ls = [16,32,64,128,256,512,1024,2*1024,4*1024,8*1024]
 
   def tree_insert(e, :nil) do {:leaf, e} end
   def tree_insert(e, {:leaf, h}=right) when e < h do {:node, e, :nil, right} end
