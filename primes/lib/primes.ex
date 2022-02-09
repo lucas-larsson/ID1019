@@ -15,4 +15,13 @@ defmodule Primes do
   def hello do
     :world
   end
+
+  def bench(n) do
+    IO.write(:wakadudle)
+    IO.write(Prime_1.prime(n))
+    #IO.write(:timer.tc(fn -> Prime_1.prime(n) end))
+    #IO.write(:timer.tc(fn -> Prime_2.prime(n) end))
+    #IO.write(:timer.tc(fn -> Prime_3.prime(n) end))
+    :ok
+  end
 end
