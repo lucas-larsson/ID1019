@@ -18,8 +18,8 @@ defmodule Primes do
 
   def bench(n) do
     IO.write(:wakadudle)
-    IO.write(Prime_1.prime(n))
-    #IO.write(:timer.tc(fn -> Prime_1.prime(n) end))
+    IO.inspect(Prime_1.prime(n))
+    IO.inspect(:timer.tc(fn -> Prime_1.prime(n) end))
     #IO.write(:timer.tc(fn -> Prime_2.prime(n) end))
     #IO.write(:timer.tc(fn -> Prime_3.prime(n) end))
     :ok
