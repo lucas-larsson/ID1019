@@ -8,6 +8,7 @@
             "type": "mix_task",
             "name": "mix (Default task)",
             "request": "launch",
+            "debugExpressionTimeoutMs": 3000000000,
             "projectDir": "${workspaceRoot}"
         },
         {
