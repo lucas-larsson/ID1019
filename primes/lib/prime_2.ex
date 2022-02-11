@@ -1,7 +1,6 @@
 defmodule Prime_2  do
 
   def prime(n) do
-    IO.inspect(:wakadudlelululul)
     list = Enum.to_list(2..n)
     prime(list,[])
   end
