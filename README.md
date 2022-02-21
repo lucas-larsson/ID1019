@@ -17,6 +17,6 @@
 ## High grade
 - [x] Interpretator
 - [x] Ström av primtal
-- [ ] Kapa brädor
+- [x] Kapa brädor
 - [ ] Filosofer
 
