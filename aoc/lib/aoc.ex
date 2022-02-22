@@ -42,6 +42,7 @@ defmodule AOC do
      IO.write('3 way sum: ')
      IO.inspect(measure([h2|t2], t2))
 
+    :OK
  end
  def measure_sum3() do
      list = input()
