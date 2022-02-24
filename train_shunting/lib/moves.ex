@@ -5,9 +5,9 @@ defmodule Moves do
           length(main) - n < 0 ->
               {main, one, two}
           n < 0 ->
-              {Train.append(main, Train.take(one, n * -1)), Train.drop(one, n * -1), two}
+              {List.append(main, List.take(one, n * -1)), List.drop(one, n * -1), two}
           n > 0 ->
-              {Train.take(main, length(main)-n), Train.append(Train.drop(main, length(main)-n), one), two}
+              {List.take(main, length(main)-n), List.append(List.drop(main, length(main)-n), one), two}
           true -> {main, one, two}
       end
   end
@@ -18,17 +18,17 @@ defmodule Moves do
           length(main) - n < 0 ->
               {main, one, two}
           n < 0 ->
-              {Train.append(main, Train.take(two, n*-1)), one, Train.drop(two, n*-1)}
+              {List.append(main, List.take(two, n * -1)), one, List.drop(two, n* -1)}
           n > 0 ->
-              {Train.take(main, length(main)-n), one, Train.append(Train.drop(main, length(main)-n), two)}
+              {List.take(main, length(main)-n), one, List.append(List.drop(main, length(main)-n), two)}
           true -> {main, one, two}
       end
   end
 
-  def move(moves, state) do
-      case moves do
-          [] -> [state]
-          [h|t] -> [state | move(t, single(h, state))]
-      end
-  end
+  def move([], state) do [state] end
+  
+  def move([h|t], state) do
+    [state | move(t, single(h, state))]
+    end
+
 end
