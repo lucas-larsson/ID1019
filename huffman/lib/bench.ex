@@ -3,7 +3,24 @@ defmodule Bench do
   # This is the benchmark of the single operations in the
   # Huffman encoding and decoding process.
 
-  def bench(file, n) do
+# added bench
+  def bench() do
+    bench(1000)
+    bench(10000)
+    bench(100000)
+    bench(400000)
+  end
+  def bench(n) do
+    bench("lib/kallocain.txt",n)
+  end
+
+  def bench(file,n) do
+    bench1(file,n)
+    bench2(file,n)
+
+  end
+
+  def bench1(file, n) do
     {text, b} = read(file, n)
     c = length(text)
     {tree, t2} = time(fn -> Huffman.tree(text) end)
@@ -21,6 +38,7 @@ defmodule Bench do
     IO.puts("encoded in #{t5} ms")
     IO.puts("decoded in #{t6} ms")
     IO.puts("source #{b} bytes, encoded #{e} bytes, compression #{r}")
+    IO.puts("1")
   end
 
   # Measure the execution time of a function.
@@ -46,7 +64,7 @@ defmodule Bench do
     end
   end
 
-  def banch(file, n) do
+  def bench2(file, n) do
     {text, b} = read(file, n)
     c = length(text)
     {tree, t2} = time(fn -> Huffman.tree(text) end)
@@ -64,6 +82,7 @@ defmodule Bench do
     IO.puts("encoded in #{t5} ms")
     IO.puts("decoded in #{t6} ms")
     IO.puts("source #{b} bytes, encoded #{e} bytes, compression #{r}")
+    IO.puts("2")
   end
 
 
