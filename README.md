@@ -8,7 +8,7 @@
 - [x] Träd vs lista
 - [x] Primtal
 - [x] Advent of code
-- [ ] Train Shunting
+- [x] Train Shunting
 - [ ] Huffman
 ## Seminars
 - [x] MIPS - Emulator
