@@ -1,6 +1,6 @@
 # ID1019
 
-**A course in functional programming with Elixir**
+**A course in cuncurent & functional programming with Elixir**
 
 ## Exercises
 - [x] The basics
