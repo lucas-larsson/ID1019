@@ -1,4 +1,4 @@
-defmodule Philosophers do
+defmodule Philosopher do
   @moduledoc """
   Documentation for `Philosophers`.
   """
@@ -20,7 +20,7 @@ defmodule Philosophers do
   @eat 100
   @delay 0
 
-  # @timeout 1000
+   @timeout 1000
 
   # Create a new philosopher process.
   def start(hunger, strength, left, right, name, ctrl, seed) do
@@ -77,7 +77,7 @@ defmodule Philosophers do
   # Philosopher is eating.
   defp eating(hunger, strength, left, right, name, ctrl, gui) do
     send(gui, :enter)
-    #IO.puts("#{name} is eating...")
+    IO.puts("#{name} is eating...")
 
     delay(@eat)
 

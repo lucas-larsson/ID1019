@@ -1,16 +1,16 @@
 defmodule Chopstick do
 
   def start() do
-    ## We link to the dinner process inorder to avoid zombie chopsticks
+    # We link to the dinner process inorder to avoid zombie chopsticks
     stick = spawn_link(fn -> init() end)
     {:stick, stick}
   end
 
   def start(node) do
-    ## We don't want to crash if the network fails
+    # We don't want to crash if the network fails
     stick = Node.spawn(node, fn -> init() end)
     {:stick, stick}
-  end  
+  end
 
   # The synchronous version of requesting a chopstick.
   def request({:stick, pid}) do
@@ -24,7 +24,7 @@ defmodule Chopstick do
     send(pid, :return)
   end
 
-  
+
   # Using a timeout to detect deadlock, does it work?
   def request({:stick, pid}, timeout) when is_number(timeout) do
     send(pid, {:request, self()})
@@ -39,11 +39,6 @@ defmodule Chopstick do
   end
 
 
-
-
-
-  
-  
   # The better version, we keep track of requests.
 
   def request({:stick, pid}, ref) do
@@ -83,7 +78,6 @@ defmodule Chopstick do
   def return({:stick, pid}, ref) do
     send(pid, {:return, ref})
   end
-  
 
 
 
@@ -93,7 +87,8 @@ defmodule Chopstick do
 
 
 
-  
+
+
   # A asynchronous request, divided into sending the
   # request and waiting for the reply.
   def asynch({:stick, pid}, ref) do
@@ -112,7 +107,7 @@ defmodule Chopstick do
 	:no
     end
   end
-  
+
   # To terminate the process.
   def quit({:stick, pid}) do
     send(pid, :quit)
@@ -124,7 +119,7 @@ defmodule Chopstick do
     local({:chopstick, self()})
     available()
   end
-  
+
   def local(msg) do
     case Process.whereis(:shell) do
       nil ->
@@ -132,21 +127,21 @@ defmodule Chopstick do
       pid ->
 	send(pid, msg)
     end
-  end    
+  end
 
-      
+
   # The two states of the chopstick.
   defp available() do
     receive do
       {:request, from} ->
         send(from, :granted)
         gone()
-      
+
       {:request, ref, from} ->
-	## only used when we use refs
+	# only used when we use refs
         send(from, {:granted, ref})
         gone(ref)
-      
+
       :quit ->
         :ok
     end
@@ -171,6 +166,6 @@ defmodule Chopstick do
         :ok
     end
   end
-  
-  
+
+
 end
