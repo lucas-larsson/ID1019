@@ -15,11 +15,12 @@ defmodule Train do
   def hello do
     :world
   end
-  
+
   def split(list, atom) do
     case Train.member(list, atom) do
-        false -> :sus
-        true -> {Train.take(list, Train.position(list, atom)-1), Train.drop(list, Train.position(list, atom))}
+        false -> :no_split
+        true -> {Train.take(list, Train.position(list, atom)-1),
+         Train.drop(list, Train.position(list, atom))}
     end
   end
 
