@@ -5,13 +5,16 @@ defmodule Bench do
 
 # added bench
   def bench() do
-    bench(1000)
+    bench(1000000)
+    IO.puts(" Warm up -------------------------------------------------")
     bench(10000)
     bench(100000)
+    bench(200000)
     bench(400000)
+    bench(800000)
   end
   def bench(n) do
-    bench("lib/kallocain.txt",n)
+    bench("lib/text.txt",n)
   end
 
   def bench(file,n) do
@@ -82,9 +85,7 @@ defmodule Bench do
     IO.puts("encoded in #{t5} ms")
     IO.puts("decoded in #{t6} ms")
     IO.puts("source #{b} bytes, encoded #{e} bytes, compression #{r}")
-    IO.puts("2")
+    IO.puts("----------------------2-------------------")
   end
-
-
-
+  
 end
