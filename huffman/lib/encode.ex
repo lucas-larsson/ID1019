@@ -67,7 +67,4 @@ defmodule Encode do
     {_, code} = List.keyfind(table, char, 0)
     code ++ encode(rest, table)
   end
-
-
-
 end
