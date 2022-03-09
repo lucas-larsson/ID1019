@@ -9,7 +9,7 @@
 - [x] Primtal
 - [x] Advent of code
 - [x] Train Shunting
-- [ ] Huffman
+- [x] Huffman
 ## Seminars
 - [x] MIPS - Emulator
 - [ ] Mandelbrot
@@ -18,5 +18,5 @@
 - [x] Interpretator
 - [x] Ström av primtal
 - [x] Kapa brädor
-- [ ] Filosofer
+- [x] Filosofer
 
