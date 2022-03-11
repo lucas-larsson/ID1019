@@ -19,5 +19,4 @@ defmodule Brot do
       _    -> i
     end
   end
-
 end
