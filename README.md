@@ -12,7 +12,7 @@
 - [x] Huffman
 ## Seminars
 - [x] MIPS - Emulator
-- [ ] Mandelbrot
+- [x] Mandelbrot
 - [ ] Sista uppgiften
 ## High grade
 - [x] Interpretator
