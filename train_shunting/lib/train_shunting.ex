@@ -17,10 +17,10 @@ defmodule Train do
   end
 
   def split(list, atom) do
-    case Train.member(list, atom) do
+    case List.member(list, atom) do
         false -> :no_split
-        true -> {Train.take(list, Train.position(list, atom)-1),
-         Train.drop(list, Train.position(list, atom))}
+        true -> {List.take(list, List.position(list, atom)-1),
+         List.drop(list, List.position(list, atom))}
     end
   end
 
