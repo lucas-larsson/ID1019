@@ -1,4 +1,4 @@
-defmodule List do
+defmodule Listt do
 
   #returns list containing first n elements
   def take(list, n) do
