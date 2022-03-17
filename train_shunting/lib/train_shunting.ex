@@ -1,21 +1,4 @@
 defmodule Train do
-  @moduledoc """
-  Documentation for `TrainShunting`.
-  """
-
-  @doc """
-  Hello world.
-
-  Examples
-
-      iex> TrainShunting.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
-
   def split(list, atom) do
     case List.member(list, atom) do
         false -> :no_split
