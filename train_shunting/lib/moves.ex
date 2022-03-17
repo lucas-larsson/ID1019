@@ -5,9 +5,9 @@ defmodule Moves do
           length(main) - n < 0 ->
               {main, one, two}
           n < 0 ->
-              {List.append(main, List.take(one, n * -1)), List.drop(one, n * -1), two}
+              {Listt.append(main, Listt.take(one, n * -1)), Listt.drop(one, n * -1), two}
           n > 0 ->
-              {List.take(main, length(main)-n), List.append(List.drop(main, length(main)-n), one), two}
+              {Listt.take(main, length(main)-n), Listt.append(Listt.drop(main, length(main)-n), one), two}
           true -> {main, one, two}
       end
   end
@@ -18,15 +18,15 @@ defmodule Moves do
           length(main) - n < 0 ->
               {main, one, two}
           n < 0 ->
-              {List.append(main, List.take(two, n * -1)), one, List.drop(two, n* -1)}
+              {Listt.append(main, Listt.take(two, n * -1)), one, Listt.drop(two, n* -1)}
           n > 0 ->
-              {List.take(main, length(main)-n), one, List.append(List.drop(main, length(main)-n), two)}
+              {Listt.take(main, length(main)-n), one, Listt.append(Listt.drop(main, length(main)-n), two)}
           true -> {main, one, two}
       end
   end
 
   def move([], state) do [state] end
-  
+
   def move([h|t], state) do
     [state | move(t, single(h, state))]
     end

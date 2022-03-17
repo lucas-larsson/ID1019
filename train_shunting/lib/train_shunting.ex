@@ -1,9 +1,9 @@
 defmodule Train do
   def split(list, atom) do
-    case List.member(list, atom) do
+    case Listt.member(list, atom) do
         false -> :no_split
-        true -> {List.take(list, List.position(list, atom)-1),
-         List.drop(list, List.position(list, atom))}
+        true -> {Listt.take(list, Listt.position(list, atom)-1),
+         Listt.drop(list, Listt.position(list, atom))}
     end
   end
 
