@@ -2,13 +2,13 @@ defmodule Decode do
 
   def decode(signal) do
     table = decode_table()
-    decode(signal, table)
+    decode(signal, table, [])
   end
 
-  def decode([], _) do [] end
-  def decode(signal, table ) do
+  def decode([], _, acc) do Enum.reverse(acc) end
+  def decode(signal, table , acc) do
     {char, rest} = decode_char(signal,table)
-    [char|decode(rest,table)]
+    decode(rest, table,[char|acc])
   end
 
   def decode_table() do
@@ -33,7 +33,6 @@ defmodule Decode do
   end
   def decode_char([?\s|signal], {:node,char , _, _ }) do
     {char,signal}
-
   end
 
 end
