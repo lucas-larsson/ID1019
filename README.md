@@ -13,7 +13,7 @@
 ## Seminars
 - [x] MIPS - Emulator
 - [x] Mandelbrot
-- [ ] Sista uppgiften
+- [ ] Morse (Sista uppgiften)
 ## High grade
 - [x] Interpretator
 - [x] Ström av primtal
